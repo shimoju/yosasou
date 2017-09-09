@@ -2,6 +2,54 @@
 
 
 [[projects]]
+  name = "github.com/labstack/echo"
+  packages = ["."]
+  revision = "cec7629194fe4bf83b0c72d9a02d340c7a1468ac"
+  version = "3.2.3"
+
+[[projects]]
+  name = "github.com/labstack/gommon"
+  packages = ["color","log"]
+  revision = "779b8a8b9850a97acba6a3fe20feb628c39e17c1"
+  version = "0.2.2"
+
+[[projects]]
+  name = "github.com/mattn/go-colorable"
+  packages = ["."]
+  revision = "167de6bfdfba052fa6b2d3664c8f5272e23c9072"
+  version = "v0.0.9"
+
+[[projects]]
+  name = "github.com/mattn/go-isatty"
+  packages = ["."]
+  revision = "fc9e8d8ef48496124e79ae0df75490096eccf6fe"
+  version = "v0.0.2"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/valyala/bytebufferpool"
+  packages = ["."]
+  revision = "e746df99fe4a3986f4d4f79e13c1e0117ce9c2f7"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/valyala/fasttemplate"
+  packages = ["."]
+  revision = "dcecefd839c4193db0d35b88ec65b4c12d360ab0"
+
+[[projects]]
+  branch = "master"
+  name = "golang.org/x/crypto"
+  packages = ["acme","acme/autocert"]
+  revision = "81e90905daefcd6fd217b62423c0908922eadb30"
+
+[[projects]]
+  branch = "master"
+  name = "golang.org/x/sys"
+  packages = ["unix"]
+  revision = "a5054c7c1385fd50d9394475365355a87a7873ec"
+
+[[projects]]
   name = "gopkg.in/gographics/imagick.v3"
   packages = ["imagick","imagick/types"]
   revision = "b231e622f10dba6f961e73e1b3ce0b55cc39f831"
@@ -10,6 +58,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "797555b1761698c4da0e24f7144bab18b6da6151957c41394b3dd045aa9dc148"
+  inputs-digest = "9611df9946d9ae1e75fbac84f79f1acdd6487e626e753f619ab358351ce5c33a"
   solver-name = "gps-cdcl"
   solver-version = 1
