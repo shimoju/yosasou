@@ -14,9 +14,9 @@ func main() {
 		return c.String(http.StatusOK, "Hello, World!")
 	})
 	e.GET("/:uri", func(c echo.Context) error {
-		uri := c.Param("uri")
-		converter.ResizeImage()
-		return c.String(http.StatusOK, uri)
+		// uri := c.Param("uri")
+		image := converter.ResizeImage()
+		return c.Blob(http.StatusOK, "image/png", image)
 	})
 
 	e.Logger.Fatal(e.Start(":1323"))

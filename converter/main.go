@@ -4,7 +4,7 @@ import (
 	"gopkg.in/gographics/imagick.v3/imagick"
 )
 
-func ResizeImage() {
+func ResizeImage() []byte {
 	imagick.Initialize()
 	defer imagick.Terminate()
 	var err error
@@ -17,5 +17,6 @@ func ResizeImage() {
 	}
 
 	_ = mw.ResizeImage(512, 512, imagick.FILTER_LANCZOS)
-	_ = mw.WriteImage("out.png")
+
+	return mw.GetImageBlob()
 }
