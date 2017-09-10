@@ -12,3 +12,11 @@ git clone https://github.com/shimoju/yosasou.git "${GOPATH:-~/go}/src/github.com
 cd "${GOPATH:-~/go}/src/github.com/shimoju/yosasou"
 dep ensure
 ```
+
+## Run
+
+```bash
+go run server.go
+```
+
+Access [http://localhost:1323/](http://localhost:1323/)
