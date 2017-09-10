@@ -1,10 +1,10 @@
-package main
+package converter
 
 import (
 	"gopkg.in/gographics/imagick.v3/imagick"
 )
 
-func main() {
+func ResizeImage() {
 	imagick.Initialize()
 	defer imagick.Terminate()
 	var err error
