@@ -7,6 +7,7 @@ LGTM Generator
 ```bash
 brew install go imagemagick
 go get -u github.com/golang/dep/cmd/dep
+go get -u github.com/codegangsta/gin
 
 git clone https://github.com/shimoju/yosasou.git "${GOPATH:-~/go}/src/github.com/shimoju/yosasou"
 cd "${GOPATH:-~/go}/src/github.com/shimoju/yosasou"
@@ -16,7 +17,7 @@ dep ensure
 ## Run
 
 ```bash
-go run server.go
+gin --port 3300 --appPort 3301 --immediate
 ```
 
 Access [http://localhost:1323/](http://localhost:1323/)

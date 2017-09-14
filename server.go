@@ -2,6 +2,7 @@ package main
 
 import (
 	"net/http"
+	"os"
 
 	"github.com/labstack/echo"
 	"github.com/shimoju/yosasou/converter"
@@ -19,5 +20,9 @@ func main() {
 		return c.Blob(http.StatusOK, image.ContentType, image.Resize())
 	})
 
-	e.Logger.Fatal(e.Start(":1323"))
+	port := os.Getenv("PORT")
+	if len(port) == 0 {
+		port = "3301"
+	}
+	e.Logger.Fatal(e.Start(":" + port))
 }
