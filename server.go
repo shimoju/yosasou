@@ -15,8 +15,8 @@ func main() {
 	})
 	e.GET("/:uri", func(c echo.Context) error {
 		// uri := c.Param("uri")
-		image := converter.ResizeImage()
-		return c.Blob(http.StatusOK, "image/png", image)
+		image := converter.Image{FileName: "icon.png", ContentType: "image/png"}
+		return c.Blob(http.StatusOK, image.ContentType, image.Resize())
 	})
 
 	e.Logger.Fatal(e.Start(":1323"))

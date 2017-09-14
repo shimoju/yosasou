@@ -4,14 +4,19 @@ import (
 	"gopkg.in/gographics/imagick.v3/imagick"
 )
 
-func ResizeImage() []byte {
+type Image struct {
+	FileName    string
+	ContentType string
+}
+
+func (i *Image) Resize() []byte {
 	imagick.Initialize()
 	defer imagick.Terminate()
 	var err error
 
 	mw := imagick.NewMagickWand()
 
-	err = mw.ReadImage("icon.png")
+	err = mw.ReadImage(i.FileName)
 	if err != nil {
 		panic(err)
 	}
