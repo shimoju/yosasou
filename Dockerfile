@@ -1,15 +1,13 @@
-FROM golang:1.9.0
-
-ENV LANG=C.UTF-8 \
-  LC_ALL=C.UTF-8 \
-  DEBIAN_FRONTEND=noninteractive
+FROM golang:1.9.0-alpine
 
 WORKDIR $GOPATH/src/github.com/shimoju/yosasou
 
-RUN apt-get update -qq && apt-get install -qq --no-install-recommends \
+RUN apk --no-cache add \
+    bash \
+    git \
+    build-base \
     imagemagick \
-    libmagickwand-dev \
-  && rm -rf /var/lib/apt/lists/* \
+    imagemagick-dev \
   && go get -u github.com/golang/dep/cmd/dep \
   && go get -u github.com/codegangsta/gin
 
