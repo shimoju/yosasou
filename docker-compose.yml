@@ -3,5 +3,7 @@ services:
   app:
     build:
       context: .
+    ports:
+      - 3300:3300
     volumes:
       - .:/go/src/github.com/shimoju/yosasou
