@@ -9,6 +9,9 @@ import (
 )
 
 func main() {
+	converter.Initialize()
+	defer converter.Terminate()
+
 	router := gin.Default()
 
 	router.GET("/", func(c *gin.Context) {

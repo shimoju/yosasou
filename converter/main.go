@@ -9,9 +9,15 @@ type Image struct {
 	ContentType string
 }
 
-func (i *Image) Resize() []byte {
+func Initialize() {
 	imagick.Initialize()
-	defer imagick.Terminate()
+}
+
+func Terminate() {
+	imagick.Terminate()
+}
+
+func (i *Image) Resize() []byte {
 	var err error
 
 	mw := imagick.NewMagickWand()
