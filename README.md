@@ -20,4 +20,4 @@ dep ensure
 gin --port 3300 --appPort 3301 --immediate
 ```
 
-Access [http://localhost:1323/](http://localhost:1323/)
+Access [http://localhost:3300/](http://localhost:3300/)
