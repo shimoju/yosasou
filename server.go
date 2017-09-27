@@ -4,25 +4,30 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/labstack/echo"
+	"github.com/gin-gonic/gin"
 	"github.com/shimoju/yosasou/converter"
 )
 
 func main() {
-	e := echo.New()
+	router := gin.Default()
 
-	e.GET("/", func(c echo.Context) error {
-		return c.String(http.StatusOK, "Hello, World!")
+	router.GET("/", func(c *gin.Context) {
+		c.JSON(http.StatusOK, gin.H{
+			"message": "YOSASOU",
+		})
 	})
-	e.GET("/:uri", func(c echo.Context) error {
-		// uri := c.Param("uri")
-		image := converter.Image{FileName: "icon.png", ContentType: "image/png"}
-		return c.Blob(http.StatusOK, image.ContentType, image.Resize())
+
+	router.GET("/images/:uri", func(c *gin.Context) {
+		uri := c.Param("uri")
+		image := converter.Image{FileName: uri, ContentType: "image/png"}
+
+		c.Data(http.StatusOK, image.ContentType, image.Resize())
 	})
 
 	port := os.Getenv("PORT")
 	if len(port) == 0 {
 		port = "3301"
 	}
-	e.Logger.Fatal(e.Start(":" + port))
+
+	router.Run(":" + port)
 }
