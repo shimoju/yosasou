@@ -1,8 +1,10 @@
 package main
 
 import (
+	"mime"
 	"net/http"
 	"os"
+	"path"
 
 	"github.com/gin-gonic/gin"
 	"github.com/shimoju/yosasou/converter"
@@ -22,7 +24,8 @@ func main() {
 
 	router.GET("/images/:uri", func(c *gin.Context) {
 		uri := c.Param("uri")
-		image := converter.Image{FileName: uri, ContentType: "image/png"}
+		contentType := mime.TypeByExtension(path.Ext(uri))
+		image := converter.Image{FileName: uri, ContentType: contentType}
 
 		c.Data(http.StatusOK, image.ContentType, image.Resize())
 	})
